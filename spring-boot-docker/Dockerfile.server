@@ -1,0 +1,9 @@
+FROM anapsix/alpine-java:8
+MAINTAINER baeldung.com
+COPY files/config-server.jar /opt/spring-cloud/lib/
+ENV SPRING_APPLICATION_JSON='{"spring": {"cloud": {"config": {"server": \
+  {"git": {"uri": "git@github.com:symious/lulu-config.git", \
+  "clone-on-start": true}}}}}}'
+ENTRYPOINT ["/opt/jdk/bin/java"]
+CMD ["-jar", "/opt/spring-cloud/lib/config-server.jar"]
+EXPOSE 8888

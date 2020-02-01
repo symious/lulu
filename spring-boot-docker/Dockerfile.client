@@ -1,0 +1,5 @@
+FROM anapsix/alpine-java:8
+MAINTAINER baeldung.com
+COPY files/config-client.jar /opt/spring-cloud/lib/
+COPY files/config-client-entrypoint.sh /opt/spring-cloud/bin/
+RUN chmod 755 /opt/spring-cloud/bin/config-client-entrypoint.sh
